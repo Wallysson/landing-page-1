@@ -48,8 +48,40 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 section {
   padding-block: 10rem;
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+}
+
+section .content p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
 }
 
 /* -------- Navigation -------- */
@@ -106,16 +138,7 @@ nav button {
   background: var(--brand-light);
 }
 
-#home h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
 #home h1 {
-  font-size: 3.4rem;
-  color: var(--headline);
-  line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
@@ -279,19 +302,7 @@ body.menu-expanded button path {
 
 /* -------- Services -------- */
 
-#services header h4 {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  line-height: 150%;
-  letter-spacing: 0.08rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
 #services header h2 {
-  font-size: 3rem;
-  line-height: 3.9rem;
-  color: var(--headline);
   margin-bottom: 6rem;
 }
 
@@ -313,4 +324,19 @@ body.menu-expanded button path {
 
 #services .card h3 {
   margin-block: 1.6rem;
+}
+
+/* -------- About -------- */
+
+#about {
+  text-align: left;
+  background: var(--brand-ba);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-block: 2.4rem 6rem;
 }
