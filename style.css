@@ -12,9 +12,14 @@
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
+  --bg-light: hsl(180, 14%, 97%);
 
   --nav-height: 7.2rem;
   font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -29,16 +34,22 @@ body {
   text-align: center;
 
   overflow: overlay;
+
+  background: var(--bg-light);
 }
 
 .wrapper {
   width: 37.5rem;
   margin-inline: auto;
-  padding: 2.4rem;
+  padding-inline: 2.4rem;
 }
 
 ul {
   list-style: none;
+}
+
+section {
+  padding-block: 10rem;
 }
 
 /* -------- Navigation -------- */
@@ -50,11 +61,10 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 100;
 }
 
-div.wrapper {
+nav div.wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +74,7 @@ nav.scroll {
   background: var(--primary-color);
 }
 
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: #fff;
 }
 
@@ -78,13 +88,13 @@ nav button {
   cursor: pointer;
 }
 
-/* -------- Header -------- */
+/* -------- Home -------- */
 
-header {
-  margin-top: calc(4.1rem + var(--nav-height));
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
 }
 
-header::before {
+#home::before {
   content: '';
   display: block;
   width: 100%;
@@ -96,20 +106,20 @@ header::before {
   background: var(--brand-light);
 }
 
-header h4 {
+#home h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-header h1 {
+#home h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
-header p {
+#home p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
@@ -117,7 +127,7 @@ header p {
   margin-bottom: 3.2rem;
 }
 
-header button {
+#home button {
   background: var(--primary-color);
 
   border: none;
@@ -138,7 +148,7 @@ header button {
   gap: 1.6rem;
 }
 
-header img {
+#home img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
@@ -179,7 +189,7 @@ body.menu-expanded {
 }
 
 body.menu-expanded > :not(nav) {
-  display: none;
+  visibility: hidden;
 }
 
 .menu,
@@ -195,6 +205,10 @@ body.menu-expanded .close-menu {
   visibility: visible;
 }
 
+.menu {
+  transform: translateY(100%);
+}
+
 body.menu-expanded .menu {
   position: fixed;
   top: 0;
@@ -205,10 +219,9 @@ body.menu-expanded .menu {
   height: 100vh;
 
   padding-top: var(--nav-height);
-}
 
-body.menu-expanded nav {
-  position: relative;
+  transition: transform 300ms;
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1) {
@@ -220,6 +233,9 @@ body.menu-expanded nav {
   font-size: 2.4rem;
   line-height: 3.1rem;
   font-weight: 700;
+}
+
+.menu ul a {
   color: #fff;
   text-decoration: none;
 }
@@ -259,4 +275,42 @@ body.menu-expanded .logo path {
 
 body.menu-expanded button path {
   stroke: #fff;
+}
+
+/* -------- Services -------- */
+
+#services header h4 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+}
+
+#services header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: #fff;
+
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
 }
