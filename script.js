@@ -1,8 +1,22 @@
+window.addEventListener('scroll', onScroll)
+
 function onScroll() {
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll() {
   let element = document.querySelector('#navigation')
   scrollY > 0
     ? element.classList.add('scroll')
     : element.classList.remove('scroll')
+}
+
+function showBackToTopButtonOnScroll() {
+  let element = document.querySelector('#backToTopButton')
+  scrollY > 600
+    ? element.classList.add('show')
+    : element.classList.remove('show')
 }
 
 function openMenu() {

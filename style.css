@@ -7,11 +7,13 @@
 }
 
 :root {
-  --primary-color: hsl(170, 100%, 26%);
+  --hue: 350;
+  --primary-color: hsl(var(--hue), 100%, 26%);
+  --brand-button-hover: hsl(var(--hue), 100%, 14%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
-  --brand-light: hsl(148, 23%, 89%);
+  --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
   --bg-light: hsl(180, 14%, 97%);
 
   --nav-height: 7.2rem;
@@ -84,6 +86,59 @@ section .content p {
   color: var(--paragraph);
 }
 
+.button {
+  background: var(--primary-color);
+
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+
+  padding: 1.6rem 3.2rem;
+  width: fit-content;
+
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+
+  text-decoration: none;
+  transition: background 200ms;
+}
+
+.button:hover {
+  background: var(--brand-button-hover);
+}
+
+/* -------- Custom Colors -------- */
+
+#services .card circle {
+  fill: var(--brand-light);
+}
+
+#navigation .logo path[fill*='#00856F'],
+#backToTopButton circle {
+  fill: var(--primary-color);
+}
+
+button.open-menu path[stroke*='#00856F'],
+#contact li path {
+  stroke: var(--primary-color);
+}
+
+body.menu-expanded #navigation .logo path,
+#navigation.scroll .logo path {
+  fill: #fff;
+}
+
+#navigation.scroll button.open-menu path[stroke*='#00856F'] {
+  stroke: #fff;
+}
+
 /* -------- Navigation -------- */
 
 nav {
@@ -106,13 +161,13 @@ nav.scroll {
   background: var(--primary-color);
 }
 
-nav.scroll .logo path {
+/* nav.scroll .logo path {
   fill: #fff;
-}
+} */
 
-nav.scroll button path {
+/* nav.scroll button path {
   stroke: #fff;
-}
+} */
 
 nav button {
   background: none;
@@ -138,6 +193,10 @@ nav button {
   background: var(--brand-light);
 }
 
+#home .button {
+  margin-inline: auto;
+}
+
 #home h1 {
   margin-bottom: 2.4rem;
 }
@@ -148,27 +207,6 @@ nav button {
   font-weight: 400;
   color: var(--paragraph);
   margin-bottom: 3.2rem;
-}
-
-#home button {
-  background: var(--primary-color);
-
-  border: none;
-  border-radius: 4rem;
-  margin: 0 auto 6rem;
-
-  height: 6.2rem;
-  width: 26.3rem;
-
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.6rem;
 }
 
 #home img {
@@ -277,6 +315,13 @@ body.menu-expanded .menu {
   padding: 1.6rem 3.2rem;
   margin-top: 4.8rem;
   margin-bottom: 8rem;
+  transition: background 300ms;
+}
+
+.menu .button:hover {
+  color: #fff;
+  background: var(--primary-color);
+  filter: brightness(1.25);
 }
 
 .social-links {
@@ -339,4 +384,82 @@ body.menu-expanded button path {
 
 #about .content p {
   margin-block: 2.4rem 6rem;
+}
+
+/* -------- Contact -------- */
+
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* -------- Footer -------- */
+
+footer {
+  background: var(--primary-color);
+  padding-block: 6rem;
+  text-align: left;
+  fill: #fff;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: #fff;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/* -------- Back to top -------- */
+
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translatey(100%);
+  transition: transform 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translatey(0);
 }
