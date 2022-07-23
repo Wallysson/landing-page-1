@@ -140,6 +140,14 @@ body.menu-expanded #navigation .logo path,
   stroke: #fff;
 }
 
+.col-a {
+  grid-area: A;
+}
+
+.col-b {
+  grid-area: B;
+}
+
 /* -------- Navigation -------- */
 
 nav {
@@ -179,6 +187,7 @@ nav button {
 /* -------- Home -------- */
 
 #home {
+  padding-block: 0rem;
   padding-top: calc(4.1rem + var(--nav-height));
 }
 
@@ -186,7 +195,7 @@ nav button {
   content: '';
   display: block;
   width: 100%;
-  height: calc(70% + var(--nav-height));
+  height: calc(74% + var(--nav-height));
   position: absolute;
   top: 0;
   left: 0;
@@ -480,6 +489,15 @@ footer .social-links {
     width: min(112rem, 100%);
     display: grid;
   }
+
+  section {
+    padding-block: 16rem;
+  }
+
+  section h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
   /* -------- Navigation -------- */
   /* -------- Reset -------- */
   nav#navigation .wrapper * {
@@ -596,10 +614,12 @@ footer .social-links {
 
   /* -------- Home -------- */
   #home::before {
-    height: calc(85% - var(--nav-height));
+    height: calc(94% - var(--nav-height));
   }
 
   #home {
+    text-align: left;
+    align-self: center;
     padding-top: var(--nav-height);
   }
 
@@ -611,8 +631,6 @@ footer .social-links {
   }
 
   #home .col-a {
-    grid-area: A;
-    text-align: left;
     align-self: center;
   }
 
@@ -628,10 +646,6 @@ footer .social-links {
     margin: 0;
   }
 
-  #home .col-b {
-    grid-area: B;
-  }
-
   #home img {
     width: 42rem;
   }
@@ -644,11 +658,82 @@ footer .social-links {
     gap: 0;
   }
 
-  #home .stat {
+  #home .stats .stat {
     flex: 1;
+    text-align: center;
   }
 
   #home .stats .stat + .stat {
     border-left: 1px solid var(--primary-color);
+  }
+
+  /* -------- Services -------- */
+
+  #services h2 {
+    width: 50rem;
+    margin-inline: auto;
+  }
+
+  #services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+
+  #services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
+
+  /* -------- About -------- */
+
+  #about .wrapper {
+    grid-template-columns: 48rem 1fr;
+    grid-template-areas: 'B A';
+    gap: 6rem;
+  }
+
+  #about .col-a {
+    align-self: center;
+  }
+
+  #about .content p {
+    margin-bottom: 0;
+  }
+
+  /* -------- Contact -------- */
+
+  #contact .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'A B';
+    gap: 6rem;
+  }
+
+  #contact h2 {
+    width: 31rem;
+  }
+
+  /* -------- Footer -------- */
+  footer {
+    padding-block: 8rem;
+  }
+
+  footer .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'A B';
+  }
+
+  footer .col-a {
+    align-self: center;
+  }
+
+  footer .col-b {
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  footer p {
+    margin-bottom: 0;
   }
 }
