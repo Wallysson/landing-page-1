@@ -24,6 +24,6 @@ Projeto feito na NLW com a @rocketseat e o instrutor @maykbrito, a idéia era cr
 
   <p align="center">
     <figure>
-      <img src="src/assets/preview.png" width="100%">
+      <img src="./assets/preview.png" width="100%">
     </figure>
   </p>
